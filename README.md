@@ -3,17 +3,17 @@
 ## Problem Statement
 
 Subscription-based businesses often lose revenue due to customer churn.
-The goal of this project is to predict whether a customer is likely to churn using historical customer data, enabling businesses to take proactive retention actions.
+The goal of this project is to **predict whether a customer is likely to churn** using historical customer data, enabling businesses to take **proactive retention actions.**
 
 # Business Use Case
 
-Identify customers at high risk of churn
+- Identify customers at high risk of churn
 
-Support targeted retention campaigns
+- Support targeted retention campaigns
 
-Improve customer lifetime value (CLV)
+- Improve customer lifetime value (CLV)
 
-Assist business and marketing teams in decision-making
+- Assist business and marketing teams in decision-making
 
 # Project Overview
 
