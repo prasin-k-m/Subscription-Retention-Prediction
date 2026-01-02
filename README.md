@@ -138,25 +138,36 @@ The project includes a Python application that allows users to:
 
 ## How to Run the Project
 **1. Clone the repository**
+
 git clone https://github.com/prasin-k-m/Subscription-Retention-Prediction.git
+
 cd Subscription-Retention-Prediction
 
 **2. Install dependencies**
+
 pip install -r requirements.txt
 
 **3. Run the application**
+
 python app_manual_input.py
 
 **4. Explore the model development notebook**
+
 jupyter notebook model.ipynb
 
 ## Project Structure
 Subscription-Retention-Prediction/
+
 │
+
 ├── app_manual_input.py
+
 ├── model.ipynb
+
 ├── requirements.txt
+
 ├── README.md
+
 ├── .gitignore
 
 ## Notes on Model Artifacts
@@ -168,4 +179,5 @@ This follows ML engineering best practices, as model artifacts are reproducible 
 ## Author
 
 **Prasin K M**
+
 Data Science | Machine Learning Projects
