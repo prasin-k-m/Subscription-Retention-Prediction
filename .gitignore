@@ -1,2 +1,12 @@
+
+# Virtual environments
+
 charn_env
-customer_churn_business_dataset.csv
+
+# Model artifacts
+
+*.sav
+
+# Data files
+
+*.csv
