@@ -5,7 +5,7 @@
 Subscription-based businesses often lose revenue due to customer churn.
 The goal of this project is to predict whether a customer is likely to churn using historical customer data, enabling businesses to take proactive retention actions.
 
-🎯 Business Use Case
+# Business Use Case
 
 Identify customers at high risk of churn
 
@@ -15,14 +15,14 @@ Improve customer lifetime value (CLV)
 
 Assist business and marketing teams in decision-making
 
-🧠 Project Overview
+# Project Overview
 
 This project implements a supervised machine learning classification pipeline to predict customer churn.
 Multiple models were trained and evaluated, and the final model was selected based on generalization performance rather than accuracy alone.
 
 The project also includes a Python-based application for real-time churn prediction.
 
-🗂 Dataset Information
+# Dataset Information
 
 Source: Kaggle
 
@@ -32,9 +32,7 @@ Target Variable: Churn
 
 Class Distribution: Imbalanced (churned customers are the minority class)
 
-📌 Raw dataset files are intentionally excluded from the repository to follow best practices.
-
-⚙️ Machine Learning Workflow
+# Machine Learning Workflow
 
 Data cleaning and preprocessing
 
@@ -52,7 +50,7 @@ Overfitting analysis (train vs test performance)
 
 Hyperparameter tuning of the final model
 
-🤖 Models Trained & Evaluated
+# Models Trained & Evaluated
 
 The following models were trained and compared:
 
@@ -70,7 +68,7 @@ AdaBoost
 
 Gaussian Naive Bayes
 
-🔍 Overfitting Analysis
+# Overfitting Analysis
 
 KNN, Decision Tree, SVC, Random Forest, AdaBoost
 
@@ -86,7 +84,7 @@ Comparable train and test performance
 
 Better generalization on unseen data
 
-🏆 Final Model Selection
+# Final Model Selection
 
 After comparing all models using precision, recall, F1-score, and confusion matrices,
 Logistic Regression was selected as the final model because:
@@ -101,7 +99,7 @@ More reliable performance on the minority (churn) class
 
 Hyperparameter tuning was applied to further optimize the Logistic Regression model, and the final model was saved using pickle.
 
-📈 Model Evaluation (Final Model – Logistic Regression)
+# Model Evaluation (Final Model – Logistic Regression)
 Test Set Performance
 
 Accuracy: ~0.67
@@ -112,7 +110,7 @@ F1-Score (Churn class): ~0.27
 
 📌 Recall was prioritized over accuracy, as identifying churned customers is more important than predicting non-churn.
 
-🖥 Application Interface
+# Application Interface
 
 The project includes a Python application that allows users to:
 
@@ -120,11 +118,11 @@ Manually input customer features
 
 Receive real-time churn predictions
 
-🚀 Planned Enhancement
+# Planned Enhancement
 
 Customer ID–based prediction, where input features are automatically retrieved for existing customers.
 
-🛠 Tech Stack
+# Tech Stack
 
 Python
 
@@ -138,21 +136,21 @@ Matplotlib
 
 Seaborn
 
-▶️ How to Run the Project
-1️⃣ Clone the repository
+# How to Run the Project
+1. Clone the repository
 git clone https://github.com/prasin-k-m/Subscription-Retention-Prediction.git
 cd Subscription-Retention-Prediction
 
-2️⃣ Install dependencies
+2. Install dependencies
 pip install -r requirements.txt
 
-3️⃣ Run the application
+3. Run the application
 python app_manual_input.py
 
-4️⃣ Explore the model development notebook
+4. Explore the model development notebook
 jupyter notebook model.ipynb
 
-📁 Project Structure
+# Project Structure
 Subscription-Retention-Prediction/
 │
 ├── app_manual_input.py
@@ -167,7 +165,7 @@ Trained model files, encoders, and scalers are excluded from version control.
 
 This follows ML engineering best practices, as model artifacts are reproducible and environment-dependent.
 
-👤 Author
+# Author
 
 Prasin K M
 Data Science | Machine Learning Projects
