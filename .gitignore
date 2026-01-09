@@ -10,3 +10,7 @@ charn_env
 # Data files
 
 *.csv
+
+# images
+
+*.png
