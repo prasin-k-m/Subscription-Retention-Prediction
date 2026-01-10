@@ -90,8 +90,6 @@ EDA insights guided **feature selection and model choice**.
 
 ##  Model Selection Strategy
 
-Due to **imbalanced class distribution**, accuracy was **not** used as the primary metric.
-
 The final model was selected based on:
 
 * **Recall (Churn class)**
@@ -107,18 +105,6 @@ The final model was selected based on:
 * Stable train–test performance
 * Interpretable and business-friendly
 * Lower risk of overfitting
-
----
-
-##  Final Model Performance (Test Set)
-
-| Metric                 | Value |
-| ---------------------- | ----- |
-| Accuracy               | ~0.67 |
-| Recall (Churn Class)   | ~0.61 |
-| F1-Score (Churn Class) | ~0.27 |
-
-> Recall was prioritized to minimize false negatives (missing churned customers).
 
 ---
 
