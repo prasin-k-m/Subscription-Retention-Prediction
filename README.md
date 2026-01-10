@@ -225,3 +225,9 @@ Artifacts are reproducible via the notebook.
 **Prasin K M**
 Data Science | Machine Learning | Predictive Analytics
 
+🔗 GitHub: https://github.com/prasin-k-m
+
+---
+
+⭐ If this project adds value, feel free to star the repository.
+
