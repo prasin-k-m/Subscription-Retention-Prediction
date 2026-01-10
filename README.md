@@ -1,183 +1,241 @@
-# Subscription Retention (Customer Churn) Prediction
+#  Customer Churn Prediction for Subscription-Based Businesses
 
-## Problem Statement
+An **end-to-end Machine Learning project** that predicts customer churn for subscription-based online businesses using behavioral, transactional, and engagement data, and deploys predictions via **Streamlit web applications**.
 
-Subscription-based businesses often lose revenue due to customer churn.
-The goal of this project is to **predict whether a customer is likely to churn** using historical customer data, enabling businesses to take **proactive retention actions.**
+---
 
-## Business Use Case
+##  Project Objective
 
-- Identify customers at high risk of churn
+To build a **production-ready churn prediction system** that identifies customers likely to cancel their subscription, enabling businesses to take **proactive retention actions**.
 
-- Support targeted retention campaigns
+This project focuses on **model generalization, class imbalance handling, and business-relevant evaluation metrics** rather than accuracy alone.
 
-- Improve customer lifetime value (CLV)
+---
 
-- Assist business and marketing teams in decision-making
+##  Business Problem & Impact
 
-## Project Overview
+Customer churn directly impacts revenue in subscription-based businesses (SaaS, OTT, EdTech, FinTech).
 
-This project implements a **supervised machine learning classification pipeline** to predict customer churn.
-Multiple models were trained and evaluated, and the **final model was selected based on generalization performance rather than accuracy alone.**
+This solution helps organizations to:
 
-The project also includes a **Python-based application** for real-time churn prediction.
+* Identify **high-risk churn customers**
+* Improve **customer retention rate**
+* Reduce revenue leakage
+* Optimize **marketing and support strategies**
+* Enhance **Customer Lifetime Value (CLV)**
 
-## Dataset Information
+---
 
-**Source**: Kaggle
+##  Dataset Overview
 
-**Type**: Subscription-based customer dataset
+* **Source**: Kaggle
+* **Type**: Subscription business customer dataset
+* **Target Variable**: `churn` (Binary Classification)
+* **Class Imbalance**: Churned customers are the minority class
 
-**Target Variable**: Churn
+### Feature Domains
 
-**Class Distribution**: Imbalanced (churned customers are the minority class)
+* Demographics (Age, Gender, Country, City)
+* Usage & Engagement (Logins, Session Time, Features Used)
+* Billing & Payments (Monthly Fee, Total Revenue, Payment Failures)
+* Customer Support (Tickets, Escalations, Resolution Time)
+* Customer Satisfaction (CSAT, NPS, Survey Response)
+* Marketing Engagement (Email Open Rate, Click Rate, Referrals)
 
-## Machine Learning Workflow
+---
 
-1. Data cleaning and preprocessing
+##  Exploratory Data Analysis (EDA)
 
-2. Handling categorical variables (encoding)
+Performed EDA to understand customer behavior and churn patterns using:
 
-3. Feature scaling
+* Distribution plots
+* Bar charts & count plots
+* Box plots (outlier analysis)
+* Correlation heatmaps
 
+EDA insights guided **feature selection and model choice**.
+
+---
+
+##  Machine Learning Pipeline
+
+1. Data cleaning & preprocessing
+2. Handling categorical variables using **OneHotEncoder**
+3. Feature scaling using **StandardScaler**
 4. Train–test split
+5. Model training using multiple classifiers
+6. Model evaluation using:
 
-5. Training multiple classification models
-
-6. Model evaluation using classification metrics
-
+   * Precision
+   * Recall
+   * F1-score
+   * Confusion Matrix
 7. Overfitting analysis (train vs test performance)
+8. Hyperparameter tuning
+9. Model persistence using **pickle**
 
-8. Hyperparameter tuning of the final model
+---
 
-## Models Trained & Evaluated
+##  Models Implemented
 
-The following models were trained and compared:
+* Logistic Regression
+* K-Nearest Neighbors (KNN)
+* Decision Tree Classifier
+* Support Vector Classifier (SVC)
+* Random Forest Classifier
+* AdaBoost Classifier
+* Gaussian Naive Bayes
 
-- K-Nearest Neighbors (KNN)
+---
 
-- Decision Tree
+##  Model Selection Strategy
 
-- Logistic Regression
+Due to **imbalanced class distribution**, accuracy was **not** used as the primary metric.
 
-- Support Vector Classifier (SVC)
+The final model was selected based on:
 
-- Random Forest
+* **Recall (Churn class)**
+* **F1-score**
+* Generalization ability
+* Bias–variance tradeoff
 
-- AdaBoost
+###  Final Model: **Logistic Regression**
 
-- Gaussian Naive Bayes
+**Why Logistic Regression?**
 
-## Overfitting Analysis
+* Better recall for churned customers
+* Stable train–test performance
+* Interpretable and business-friendly
+* Lower risk of overfitting
 
-- **KNN, Decision Tree, SVC, Random Forest, AdaBoost**
+---
 
-    - Very high training accuracy
+##  Final Model Performance (Test Set)
 
-    - Significantly lower test performance
+| Metric                 | Value |
+| ---------------------- | ----- |
+| Accuracy               | ~0.67 |
+| Recall (Churn Class)   | ~0.61 |
+| F1-Score (Churn Class) | ~0.27 |
 
-    - Identified as **overfitting models**
+> Recall was prioritized to minimize false negatives (missing churned customers).
 
-- **Logistic Regression & Gaussian Naive Bayes**
+---
 
-    - Comparable train and test performance
+##  Application Deployment (Streamlit)
 
-    - Better generalization on unseen data
+### 1️ Manual Input Interface
 
-## Final Model Selection
+* User manually enters customer features
+* Real-time churn prediction
+* Actionable retention recommendations
 
-After comparing all models using **precision, recall, F1-score, and confusion matrices,
-Logistic Regression** was selected as the final model because:
+📄 File: `app_manual_input.py`
 
-- It showed **good generalization**
+---
 
-- Balanced bias–variance tradeoff
+### 2️ Customer ID–Based Interface (Production Simulation)
 
-- Better interpretability
+* User inputs **Customer ID**
+* Customer data auto-fetched from dataset
+* Churn prediction + recommendations generated
 
-- More reliable performance on the minority (churn) class
+📄 File: `app_customer_id_input.py`
 
-Hyperparameter tuning was applied to further optimize the Logistic Regression model, and the final model was saved using pickle.
+✔ Simulates real-world enterprise ML systems
 
-## Model Evaluation (Final Model – Logistic Regression)
-**Test Set Performance**
+---
 
-**Accuracy**: ~0.67
+##  Recommendation Engine
 
-**Recall (Churn class)**: ~0.61
+A rule-based recommendation system provides **business-aligned retention strategies**, including:
 
-**F1-Score (Churn class)**: ~0.27
+* Engagement improvement suggestions
+* Pricing & discount strategies
+* Support escalation handling
+* Marketing optimization
+* Loyalty and referral programs
 
-Recall was prioritized over accuracy, as identifying churned customers is more important than predicting non-churn.
+Recommendations are generated **independently of the ML prediction** to improve interpretability.
 
-## Application Interface
+---
 
-The project includes a Python application that allows users to:
+##  Tech Stack & Tools
 
-- Manually input customer features
+* **Programming**: Python
+* **Data Analysis**: Pandas, NumPy
+* **Machine Learning**: Scikit-learn
+* **Visualization**: Matplotlib, Seaborn
+* **Deployment**: Streamlit
+* **Model Persistence**: Pickle
 
-- Receive real-time churn predictions
+---
 
-## Planned Enhancement
+##  How to Run the Project
 
-- **Customer ID–based prediction**, where input features are automatically retrieved for existing customers.
+### Clone Repository
 
-## Tech Stack
-
-- Python
-
-- NumPy
-
-- Pandas
-
-- Scikit-learn
-
-- Matplotlib
-
-- Seaborn
-
-## How to Run the Project
-**1. Clone the repository**
-
+```bash
 git clone https://github.com/prasin-k-m/Subscription-Retention-Prediction.git
-
 cd Subscription-Retention-Prediction
+```
 
-**2. Install dependencies**
+### Install Dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
-**3. Run the application**
+### Run Applications
 
-python app_manual_input.py
+```bash
+streamlit run app_manual_input.py
+streamlit run app_customer_id_input.py
+```
 
-**4. Explore the model development notebook**
+### Model Development Notebook
 
+```bash
 jupyter notebook model.ipynb
+```
 
-## Project Structure
+---
+
+##  Project Structure
+
+```
 Subscription-Retention-Prediction/
-
 │
-
 ├── app_manual_input.py
-
+├── app_customer_id_input.py
 ├── model.ipynb
-
+├── customer_churn_business_dataset.csv
 ├── requirements.txt
-
 ├── README.md
-
 ├── .gitignore
+```
 
-## Notes on Model Artifacts
+---
 
-Trained model files, encoders, and scalers are **excluded from version control.**
+##  Model Artifacts Note
 
-This follows ML engineering best practices, as model artifacts are reproducible and environment-dependent.
+Trained models, encoders, and scalers are **excluded from version control** in line with ML engineering best practices.
+Artifacts are reproducible via the notebook.
 
-## Author
+---
+
+##  Future Enhancements
+
+* SHAP-based explainability
+* Cloud deployment (AWS / GCP)
+* REST API integration
+* Automated model retraining
+* Business KPI dashboards
+
+---
+
+##  Author
 
 **Prasin K M**
+Data Science | Machine Learning | Predictive Analytics
 
-Data Science | Machine Learning Projects
